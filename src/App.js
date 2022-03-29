@@ -5,23 +5,26 @@ import { WatchList } from "./components/WatchList.js";
 import { Watched } from "./components/Watched.js";
 import { Add } from "./components/Add.js";
 import "./lib/font-awesome/css/all.min.css";
+import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <WatchList />
-        </Route>
-        <Route path="/watched">
-          <Watched />
-        </Route>
-        <Route path="/add">
-          <Add />
-        </Route>
-      </Switch>
-    </Router>
+    <GlobalProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <WatchList />
+          </Route>
+          <Route path="/watched">
+            <Watched />
+          </Route>
+          <Route path="/add">
+            <Add />
+          </Route>
+        </Switch>
+      </Router>
+    </GlobalProvider>
   );
 }
 
